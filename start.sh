@@ -1,5 +1,7 @@
 #!/bin/sh
 
+export DISPLAY=:0
+
 ADDRS=$(tr -d '\n' < urls)
 
 for LOCAL in $(ls local/*.html); do
@@ -8,7 +10,7 @@ done
 
 echo $ADDRS
 
-midori --display=:0 -a $ADDRS &
+midori -a $ADDRS &
 
 sleep 10
 xdotool search --class midori key F11
