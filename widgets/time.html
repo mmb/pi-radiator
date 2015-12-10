@@ -1,0 +1,24 @@
+<h1 id="time"></h1>
+
+<script>
+function toBeats(date) {
+	  return ((date.getTime() / 1000.0) + 3600) % 86400 / 86.4;
+}
+
+function formatTime(date) {
+	  var hours = date.getHours();
+	    if (hours > 12) {
+		        hours -= 12;
+			  }
+	      var minutes = ('0'  + date.getMinutes()).slice(-2);
+
+	        return (date.getMonth() + 1) + "/" + date.getDate() + " " + hours + ":" + minutes;
+}
+
+function update() {
+	  var d = new Date();
+	    document.getElementById("time").innerHTML = formatTime(d) + " / @" + Math.floor(toBeats(d));
+}
+
+setInterval(update, 1000);
+</script>
