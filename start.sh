@@ -15,4 +15,4 @@ midori -a $ADDRS &
 sleep 10
 xdotool search --class midori key F11
 
-watch -n 30 "xdotool search --class midori key ctrl+Tab ctrl+R"
+watch -n 300 "xdotool search --class midori key ctrl+Tab ctrl+R"
