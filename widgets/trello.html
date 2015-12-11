@@ -1,0 +1,27 @@
+<div id="trello"></div>
+
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://api.trello.com/1/client.js?key="></script>
+
+<script>
+function showList() {
+  Trello.get('/lists//cards', function(cards) {
+    $.each(cards, function(i, card) {
+      $('#trello').append($('<h1>').append(card.name));
+    });
+  });
+}
+
+Trello.authorize({
+  type: "popup",
+  name: "pi-radiator",
+  scope: {
+    read: true,
+    write: false
+  },
+  expiration: "never",
+  success: showList,
+  error: alert,
+});
+
+</script>
