@@ -1,11 +1,13 @@
 #!/bin/sh
 
+python -m SimpleHTTPServer &
+
 export DISPLAY=:0
 
 ADDRS=$(tr -d '\n' < urls)
 
 for LOCAL in $(ls local/*.html); do
-  ADDRS="$ADDRS file://$PWD/$LOCAL"
+  ADDRS="$ADDRS http://localhost:8000/local/$LOCAL"
 done
 
 echo $ADDRS
